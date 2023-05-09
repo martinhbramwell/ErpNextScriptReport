@@ -1,13 +1,19 @@
 from setuptools import setup, find_packages
 
+with open("requirements.txt") as f:
+	install_requires = f.read().strip().split("\n")
+
+# get version from __version__ variable in erpnextscriptreport/__init__.py
+from erpnextscriptreport import __version__ as version
+
 setup(
-    name='helloworld',
-    version='0.0.1',
-    description='A simple "Hello World" app for ERPNext',
-    author='Your Name',
-    author_email='you@example.com',
-    packages=find_packages(),
-    zip_safe=False,
-    include_package_data=True,
-    install_requires=('frappe',),
+	name="erpnextscriptreport",
+	version=version,
+	description="Provides a storage space for Script Reports outside the ERPNext framework",
+	author="martinhbramwell",
+	author_email="martinhbramwell@gmail.com",
+	packages=find_packages(),
+	zip_safe=False,
+	include_package_data=True,
+	install_requires=install_requires
 )
